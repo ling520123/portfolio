@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>李飞扬 · 产品经理作品集</title>
+<style>
+  :root{
+    --bg:#f5f7fb; --card:#ffffff; --ink:#1f2329; --sub:#5b6168;
+    --line:#e6e9ef; --brand:#4f46e5; --brand-2:#6366f1; --brand-soft:#eef0fe;
+    --ok:#0f9d58; --warn:#e8a33d; --shadow:0 6px 24px rgba(31,35,41,.06);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:980px;margin:0 auto;padding:0 20px 80px}
+  a{color:var(--brand);text-decoration:none}
+
+  .hero{background:linear-gradient(135deg,#4f46e5 0%,#7c6cf0 55%,#9b8cf5 100%);color:#fff;
+    border-radius:0 0 28px 28px;padding:54px 20px 46px;margin-bottom:34px;box-shadow:var(--shadow)}
+  .hero .inner{max-width:980px;margin:0 auto;padding:0 20px}
+  .hero h1{font-size:38px;letter-spacing:1px;margin-bottom:6px}
+  .hero .role{font-size:17px;opacity:.95;margin-bottom:18px}
+  .hero .tag{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);
+    padding:5px 12px;border-radius:20px;font-size:13px;margin:0 8px 8px 0}
+  .hero .contact{margin-top:16px;font-size:14px;opacity:.92}
+  .hero .contact span{margin-right:18px;white-space:nowrap}
+
+  .section{background:var(--card);border:1px solid var(--line);border-radius:18px;
+    padding:28px 30px;margin-bottom:22px;box-shadow:var(--shadow)}
+  .section h2{font-size:22px;margin-bottom:4px;display:flex;align-items:center;gap:10px}
+  .section h2 .num{background:var(--brand);color:#fff;width:30px;height:30px;border-radius:9px;
+    display:inline-flex;align-items:center;justify-content:center;font-size:15px}
+  .section .lead{color:var(--sub);font-size:14px;margin-bottom:18px}
+  .sub{font-size:16px;font-weight:600;margin:22px 0 10px;color:var(--brand);display:flex;align-items:center;gap:8px}
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .wf{background:var(--brand-soft);border:1px solid #dfe2fb;border-radius:14px;padding:16px}
+  .wf .ic{font-size:22px}
+  .wf h3{font-size:15px;margin:8px 0 6px}
+  .wf p{font-size:13px;color:var(--sub);line-height:1.55}
+  .wf .proof{margin-top:8px;font-size:12px;color:var(--brand);background:#fff;border:1px dashed #c7cbf6;
+    border-radius:8px;padding:6px 8px}
+
+  .proj-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px;
+    border-bottom:2px solid var(--brand);padding-bottom:10px;margin-bottom:8px}
+  .proj-head .name{font-size:20px;font-weight:700}
+  .proj-head .meta{font-size:13px;color:var(--sub)}
+  .pill{display:inline-block;background:var(--brand-soft);color:var(--brand);font-size:12px;
+    padding:3px 10px;border-radius:12px;margin:2px 6px 2px 0;font-weight:600}
+
+  .flowrow{display:grid;grid-template-columns:170px 1fr;gap:14px;padding:12px 0;border-bottom:1px dashed var(--line)}
+  .flowrow:last-child{border-bottom:none}
+  .flowrow .k{font-weight:600;color:var(--ink);font-size:14px}
+  .flowrow .k small{display:block;color:var(--sub);font-weight:400;font-size:12px}
+  .flowrow .v{font-size:14px;color:#33383f}
+  .flowrow .v b{color:var(--brand)}
+
+  /* model cards */
+  .models{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px}
+  .model{background:#fafbff;border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:10px;padding:12px 14px}
+  .model h4{font-size:14px;margin-bottom:4px}
+  .model p{font-size:13px;color:var(--sub)}
+  .model .m{font-size:12px;color:var(--ok);font-weight:600;margin-top:4px}
+
+  /* funnel */
+  .funnel{margin-top:8px}
+  .fstep{display:flex;align-items:center;gap:14px;margin:8px 0}
+  .fstep .box{flex:1;background:linear-gradient(90deg,#6366f1,#8b7cf6);color:#fff;border-radius:10px;
+    padding:12px 16px;font-size:14px}
+  .fstep .box.alt{background:linear-gradient(90deg,#0f9d58,#34b36b)}
+  .fstep .box.soft{background:linear-gradient(90deg,#e8a33d,#f0b95e);color:#3a2a00}
+  .fstep .n{width:34px;height:34px;border-radius:50%;background:var(--brand);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:700;flex:none}
+  .arrow{text-align:center;color:var(--sub);font-size:13px}
+
+  .tl{position:relative;padding-left:22px}
+  .tl::before{content:"";position:absolute;left:6px;top:4px;bottom:4px;width:2px;background:var(--brand-soft)}
+  .tl .item{position:relative;margin-bottom:16px}
+  .tl .item::before{content:"";position:absolute;left:-19px;top:6px;width:11px;height:11px;border-radius:50%;
+    background:var(--brand);border:2px solid #fff;box-shadow:0 0 0 2px var(--brand-soft)}
+  .tl .item b{font-size:14px}
+  .tl .item p{font-size:13px;color:var(--sub)}
+
+  .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .sk-box{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px}
+  .sk-box h4{font-size:14px;margin-bottom:8px;color:var(--brand)}
+  .sk-box ul{list-style:none;font-size:13px;color:#33383f}
+  .sk-box li{padding:3px 0}
+
+  .kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:10px 0}
+  .kpi .c{background:var(--brand-soft);border-radius:12px;padding:14px;text-align:center}
+  .kpi .c .big{font-size:22px;font-weight:800;color:var(--brand)}
+  .kpi .c .lbl{font-size:12px;color:var(--sub);margin-top:2px}
+
+  .note{background:#fffbe9;border:1px solid #f3e2a8;border-radius:12px;padding:14px 18px;
+    font-size:13px;color:#7a5b00;margin-top:6px}
+  .note b{color:#8a5a00}
+  .artifact{background:#eafaf0;border:1px solid #b7e6c8;border-radius:12px;padding:12px 16px;font-size:13px;margin-top:10px}
+  .artifact b{color:#0f7a3d}
+
+  /* demo showcase */
+  .demo{background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);color:#fff;border-radius:16px;padding:22px;margin-top:14px}
+  .demo .demo-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .demo .demo-head h3{font-size:17px;margin:0}
+  .demo .demo-head .meta{font-size:13px;opacity:.85;margin-top:3px}
+  .demo .play{display:inline-block;background:#ffd54a;color:#1a1a1a;font-weight:700;padding:8px 16px;border-radius:10px;font-size:14px;white-space:nowrap}
+  .demo .play:hover{background:#ffe07a}
+  .game-frame{width:100%;max-width:480px;margin:16px auto 6px;border-radius:12px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.35);background:#faf8ef}
+  .game-frame iframe{display:block;width:100%;height:560px;border:0}
+  .demo .cap{font-size:12px;opacity:.8;margin-top:8px;text-align:center}
+
+  /* gallery */
+  .gal-item{margin:16px 0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+  .gal-item img{display:block;width:100%;height:auto}
+  .gal-item .cap{padding:12px 16px;font-size:13px;color:var(--sub);border-top:1px solid var(--line);line-height:1.6}
+  .gal-item .cap b{color:var(--brand)}
+  .demo-flag{display:inline-block;background:#fff7ed;color:#c2410c;border:1px solid #fdba74;
+    font-size:11px;padding:2px 9px;border-radius:10px;margin-left:8px;vertical-align:middle}
+  .phone-wrap{display:flex;justify-content:center;background:#fff;padding:16px}
+  .phone-wrap img{max-width:340px;height:auto}
+
+  .footer{text-align:center;color:var(--sub);font-size:13px;margin-top:30px}
+  @media (max-width:720px){
+    .grid,.skills,.models,.kpi{grid-template-columns:1fr}
+    .flowrow{grid-template-columns:1fr;gap:4px}
+    .hero h1{font-size:30px}
+  }
+  @media print{
+    body{background:#fff}
+    .hero{border-radius:0;box-shadow:none}
+    .section,.hero{box-shadow:none}
+  }
+  .cmp{width:100%;border-collapse:collapse;margin-top:12px;font-size:13px}
+  .cmp th,.cmp td{border:1px solid #e5e7eb;padding:8px 10px;vertical-align:top;text-align:left;line-height:1.5}
+  .cmp th{background:#f1f5f9;font-weight:600;color:#0f172a}
+  .cmp td:first-child,.cmp th:first-child{background:#f8fafc;font-weight:600;color:#334155;width:96px;white-space:nowrap}
+  .cmp caption{caption-side:top;font-size:12px;color:#64748b;text-align:left;margin-bottom:6px}
+  .prd{width:100%;border-collapse:collapse;font-size:13px;margin:6px 0;line-height:1.5}
+  .prd th,.prd td{border:1px solid #e5e7eb;padding:8px 10px;vertical-align:top;text-align:left}
+  .prd th{background:#f1f5f9;color:#334155;font-weight:600}
+  .prd tr:nth-child(even) td{background:#fafafa}
+  .prio{display:inline-block;padding:1px 9px;border-radius:11px;font-size:12px;font-weight:600}
+  .prio.m{background:#dbeafe;color:#1d4ed8}
+  .prio.s{background:#dcfce7;color:#15803d}
+  .prio.c{background:#fef9c3;color:#a16207}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="inner">
+    <h1>李飞扬</h1>
+    <div class="role">产品经理 · 软件工程背景 · <b>懂技术的售前</b></div>
+    <div>
+      <span class="tag">🎓 南京邮电大学 软件工程 2026 届</span>
+      <span class="tag">📊 数据驱动</span>
+      <span class="tag">🧠 会写 Python / Java</span>
+      <span class="tag">🚀 0-1 项目操盘</span>
+      <span class="tag">💡 B 端产品经理</span>
+    </div>
+    <div class="contact">
+      <span>📱 18827903328</span>
+      <span>✉️ 1083322655@qq.com</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- 1. 能力地图 -->
+  <section class="section">
+    <h2><span class="num">1</span>产品经理全流程能力地图</h2>
+    <p class="lead">把我的经历映射到产品经理的完整工作流——每张卡片都是「流程环节 + 我已具备的真实证据」。</p>
+    <div class="grid">
+      <div class="wf"><div class="ic">🔍</div><h3>用户研究 / 市场调研</h3><p>1.9 万条真实评论 + 市场/PEST/波特五力/STP 分析，理解跨境女装与大学生 IT 学习者。</p><div class="proof">证据：三创赛报告书、优课达用户面对面访谈</div></div>
+      <div class="wf"><div class="ic">🧩</div><h3>需求分析与管理</h3><p>从评论情感提炼样式/尺寸/品质/颜色四大诉求并排序；把业务拆成 4 类需求定优先级。</p><div class="proof">证据：LDA 细粒度情感、优课达核心业务优先级</div></div>
+      <div class="wf"><div class="ic">🗺️</div><h3>产品规划与策略</h3><p>输出周/月/年度业务方案；用 K-means++ 与 TOPSIS 制定女装数字营销方案。</p><div class="proof">证据：优课达执行方案、女装 5 套营销策略</div></div>
+      <div class="wf"><div class="ic">⚔️</div><h3>竞品分析</h3><p>用波特五力拆解女装格局；对比 3 类 IT 学习平台（极客时间 / 慕课网 / 黑马程序员），从功能、价格、用户、获客、差异五维度输出优课达差异化定位。</p><div class="proof">证据：竞品对比表、波特五力</div></div>
+      <div class="wf"><div class="ic">✏️</div><h3>原型 / PRD / 流程图</h3><p>会画业务流程与转化漏斗，能写文档、做原型；掌握 Axure / XMind / Mermaid。</p><div class="proof">证据：PRD 片段（功能列表 + 优先级 + 验收标准）、Mermaid 流程图</div></div>
+      <div class="wf"><div class="ic">🤝</div><h3>项目管理与协作</h3><p>5 人跨专业小组，李飞扬独立完成用户画像搭建、运营情况分析；配合队内其他成员完成 LDA 主题挖掘、Logistic 回归建模等；同时作为答辩负责人完成汇报。</p><div class="proof">证据：用户画像搭建、LDA/Logistic 建模、答辩负责人</div></div>
+      <div class="wf"><div class="ic">📈</div><h3>数据分析与指标</h3><p>独立跑 VADER/Logistic/LDA；跟踪聊单量→转化率→业绩，定位并解决业务问题。</p><div class="proof">证据：93.27% 模型、30w+ 业绩归因</div></div>
+      <div class="wf"><div class="ic">🚀</div><h3>上线与运营增长</h3><p>把分析成果落地为营销方案与赛事；用「两次聊单」机制撬动 30w+ 业绩。</p><div class="proof">证据：三创赛、年度业绩</div></div>
+      <div class="wf"><div class="ic">🔁</div><h3>复盘与迭代</h3><p>周复盘机制沉淀 SOP；把「聊单太急被当传销」迭代为信任友好型转化。</p><div class="proof">证据：周复盘 5 步法、方法论沉淀</div></div>
+    </div>
+  </section>
+
+  <!-- 2. 核心项目 A -->
+  <section class="section">
+    <h2><span class="num">2</span>核心项目 A｜跨境电商女装消费数据情感分析</h2>
+    <p class="lead">三创赛实战赛·数据分析与营销赛道 ｜ 2024.02–2024.05 ｜ 5 人小组核心成员 ｜ 校赛一等奖</p>
+    <div class="proj-head">
+      <div class="name">用 1.9 万条评论的「情感」，给女装选品与营销开药方</div>
+      <div class="meta">数据驱动的产品洞察</div>
+    </div>
+    <div>
+      <span class="pill">用户研究</span><span class="pill">情感分析</span><span class="pill">用户画像</span>
+      <span class="pill">K-means++</span><span class="pill">TOPSIS</span><span class="pill">Logistic</span><span class="pill">LDA</span>
+    </div>
+
+    <div class="kpi">
+      <div class="c"><div class="big">19,281</div><div class="lbl">清洗后评论样本</div></div>
+      <div class="c"><div class="big">92.3%</div><div class="lbl">积极情感占比</div></div>
+      <div class="c"><div class="big">4.18</div><div class="lbl">平均评分(5分制)</div></div>
+      <div class="c"><div class="big">93.27%</div><div class="lbl">推荐预测模型准确率</div></div>
+    </div>
+
+    <div class="flowrow"><div class="k">用户研究 / 调研<small>Research</small></div>
+      <div class="v">从某跨境女装店铺<b>近半年消费数据</b>出发，先做市场分析：服装市场规模、热销品类、消费者画像调研，叠加 <b>PEST</b>（政策/经济/社会/技术）与<b>波特五力</b>竞争分析，并用 <b>STP</b> 做目标市场定位——帮企业搞清「卖给谁、怎么卖」。</div></div>
+
+    <div class="flowrow"><div class="k">需求分析<small>Requirements</small></div>
+      <div class="v">从海量评论里提炼消费者四大核心诉求：<b>样式 / 尺寸 / 品质 / 颜色</b>。其中「尺寸」是最突出的负面因素（尺码不符→退换货），「样式+舒适度」是最强正面驱动；据此把优化资源优先投向尺码体系与详情页呈现。</div></div>
+
+    <div class="flowrow"><div class="k">数据分析 / 模型<small>Analysis</small></div>
+      <div class="v">原始数据 11 列 19,999 行 → 清洗后 <b>19,281 条</b>有效评论。用 5 种方法逐层拆解（见下方模型卡）：传统情感分析、K-means++ 聚类、熵权 TOPSIS、二元 Logistic 回归、LDA 主题挖掘。</div></div>
+
+    <div class="models">
+      <div class="model"><h4>① 传统情感分析（VADER / NLTK）</h4><p>把评论文本转为情感得分，划分积极/中性/消极。结果：积极 92.3%（17,794）、消极 5.65%（1,090）、中性 2.05%（397）。</p><div class="m">✓ 量化整体口碑基调</div></div>
+      <div class="model"><h4>② K-means++ 用户聚类</h4><p>用年龄/购买倾向/市场潜力/评分/获赞/需求差异 6 因子聚类，轮廓系数 0.527，将消费者分为<b>重点稳固 / 重点培养 / 精准培养</b>三类。</p><div class="m">✓ 人群分层精准推送</div></div>
+      <div class="model"><h4>③ 熵权 TOPSIS 受欢迎度</h4><p>综合销量与满意度（熵权 0.995∶0.005）得出最受欢迎品类：大类 <b>Tops</b>、细类 <b>Dresses</b> 居首。</p><div class="m">✓ 指导选品重心</div></div>
+      <div class="model"><h4>④ 二元 Logistic 推荐机制</h4><p>验证推荐意愿影响因素，综合准确率 <b>93.27%</b>。Rating 的 OR=22.47、情感得分 OR=2.255、年龄 OR=1.011——<b>越满意、越正面越愿推荐</b>。</p><div class="m">✓ 锁定增长杠杆</div></div>
+    </div>
+
+    <div class="flowrow"><div class="k">关键发现<small>Insights</small></div>
+      <div class="v">
+        • <b>消费主力 31–40 岁</b>，但该类群满意度低于均值，需重点控品与沟通差评；<br>
+        • <b>细粒度情感</b>四个维度正面比率均 &gt;65%，样式/风格高达 &gt;80%；<b>颜色指标评分全维度最低</b>——网购色差成普遍痛点；<br>
+        • <b>连衣裙（Dress）</b>负面主因是尺寸、正面主因是款式+舒适度；满意度 74.51% 为细类第一；<br>
+        • 各大类满意度均 &gt;65%，<b>Intimate 79.48% 最高、Trend 65.42% 最低</b>。
+      </div></div>
+
+    <div class="flowrow"><div class="k">产品规划 / 策略<small>Strategy</small></div>
+      <div class="v">基于上述发现产出<b>数字营销方案</b>：①关键词营销（结合热搜词）；②产品战略（非贴身衣物为重心、正常:偏小尺码 5:3、重点 Dresses/Knits/Blouses）；③按年龄/品类的精准推荐；④评论管理（好评抽奖/晒单有礼/简化评价）；⑤推广（小红书+抖音双平台，50+ 群体用传统大屏广告+代言）。</div></div>
+
+    <div class="flowrow"><div class="k">项目管理<small>Delivery</small></div>
+      <div class="v">5 人跨专业小组，李飞扬独立完成用户画像搭建、运营情况分析；配合队内其他成员完成 LDA 主题挖掘、Logistic 回归建模等；同时作为<b>答辩负责人</b>完成汇报。</div></div>
+
+    <div class="flowrow"><div class="k">可视化 / 上线<small>Impact</small></div>
+      <div class="v">搭建<b>数据可视化大屏</b>（石方 BI），覆盖用户画像/运营/情感/营销四模块；成果用于三创赛获<b>校赛一等奖</b>，形成可复用的「评论→需求→营销」方法论。
+        <div class="artifact"><b>📊 实物证据</b>：项目报告书（三创赛）、答辩 PPT、Python 分析代码（数据预处理 / LDA / 细粒度情感）、数据大屏
+        <a href="http://bi.zjsfsz.com/dash/newScreen/share/2926?token=17087570518283afc21e2996a8fd5207b7496" target="_blank">查看大屏 ↗（密码 u1s1）</a></div>
+        <img src="assets/media/bi_dashboard.png" alt="跨境电商女装数据可视化大屏截图" style="width:100%;max-width:760px;border-radius:10px;margin-top:14px;border:1px solid #e5e7eb;display:block" />
+        <div class="cap">↑ 项目真实数据可视化大屏截图（石方 BI）：已售服装分类、累计销售额、商品卖点词云、客户细粒度情感分析等模块</div>
+      </div></div>
+  </section>
+
+  <!-- 3. 核心项目 B -->
+  <section class="section">
+    <h2><span class="num">3</span>核心项目 B｜优课达（杭州）网络有限公司 · 产品运营（业务管理方向）</h2>
+    <p class="lead">2023.03–2025.06 ｜ 业务管理 ｜ 2 年+ ｜ 面向大学生的 IT 学习互联网平台</p>
+    <div class="proj-head">
+      <div class="name">用机制与数据，把业务从 0 跑成 30w+ 业绩</div>
+      <div class="meta">业务操盘 + 团队搭建 + 方法论沉淀</div>
+    </div>
+    <div>
+      <span class="pill">业务策略</span><span class="pill">数据分析</span><span class="pill">团队管理</span>
+      <span class="pill">转化漏斗</span><span class="pill">增长闭环</span>
+    </div>
+
+    <div class="flowrow"><div class="k">用户研究<small>Research</small></div>
+      <div class="v">面向<b>初入大学、迷茫但渴望成长</b>的 IT 学习者。通过朋友推荐引流，再与用户<b>面对面聊大学规划</b>，在真实对话中理解他们的目标与卡点。</div></div>
+
+    <div class="flowrow"><div class="k">需求分析<small>Requirements</small></div>
+      <div class="v">业务侧核心需求拆为 4 类：①找目标客户 ②聊单 ③跟单 ④扩充团队。我的优先级判断：<b>4（扩团队）&gt; 2（聊单）&gt; 1（找客户）&gt; 3（跟单）</b>——先有队伍才有规模。</div></div>
+
+    <div class="flowrow"><div class="k">产品规划 / 策略<small>Strategy</small></div>
+      <div class="v">输出<b>周/月/年度业务执行方案</b>，核心 4 目标：客户转化数、团队扩充人数、成员归属感与能力、学员群自主运营。推广策略：<b>与班长/班委建关系</b>让其介绍客户，并视情况把班委发展为团队成员——依据其在班级的职位与活跃度判断可撬动性。</div></div>
+
+    <div class="flowrow"><div class="k">竞品分析<small>Competitive</small></div>
+      <div class="v">
+        <p>对比 3 类典型 IT 学习平台，从功能形态、价格、目标用户、获客渠道、核心差异五个维度拆解；优课达为内部真实数据，竞品为公开桌面研究估算：</p>
+        <table class="cmp">
+          <caption>注：优课达价格为内部真实数据（约 ¥11,000 / 4 年有效期），竞品价格与规模为公开桌面研究估算，仅用于展示分析框架。</caption>
+          <tr><th>维度</th><th>优课达（自家）</th><th>极客时间</th><th>慕课网</th><th>黑马程序员</th></tr>
+          <tr><td>功能 / 产品形态</td><td>线上网站（文字为主、视频为辅）IT 编程学习 + 线上助教 + 线下俱乐部；培优式完整学习路径</td><td>技术垂直付费内容平台，专栏 / 视频课 / 每日一课，文字 + 音频为主</td><td>IT 技能视频课程平台，免费 + 付费，体系课 / 路径课，视频为主</td><td>线下 + 线上 IT 就业培训，Java / 前端 / UI 等，面授 + 项目实战，就业导向</td></tr>
+          <tr><td>价格</td><td>约 ¥11,000（4 年有效期）（内部真实数据）</td><td>单课 / 专栏 ¥29–¥599（估算）</td><td>免费课多，体系课 ¥199–¥2,999（估算）</td><td>线下就业班约 ¥18,000–¥23,000 / 期（估算）</td></tr>
+          <tr><td>目标用户</td><td>大学生 / 准程序员中"想变优秀"的群体</td><td>在职程序员 / 工程师，职业提升</td><td>在校 / 初级程序员，技能补齐</td><td>转行 / 就业刚需人群，零基础~初级</td></tr>
+          <tr><td>获客渠道</td><td>校园渠道（班长 / 班委关系）、社群裂变、老带新</td><td>掘金社区流量、公众号、技术 KOL、大厂员工</td><td>SEO / 百度、B站短视频、免费课引流</td><td>搜索引擎投放、校区地推、转介绍、招聘平台</td></tr>
+          <tr><td>核心差异</td><td>—（基准）</td><td>纯内容付费、无重服务 / 助教，碎片化学习，不做"带人路径"</td><td>纯视频自学、无助教 / 俱乐部、低价甚至免费，做"补差 / 达标"</td><td>重线下面授、就业保障承诺、高价长周期，做"培训 / 补差到就业"</td></tr>
+        </table>
+        <p style="margin-top:10px">结论：多数平台做的是<b>培训或补差</b>（解决"达标 / 跟上"），而优课达做的是<b>培优</b>——给优秀或想变优秀的同学一套完整学习路径，并以「线上网站 + 助教 + 俱乐部」降低学习门槛、提升主动性。培优是把人带得更好，不是把人补到及格，这正是差异化壁垒。</p>
+      </div></div>
+
+    <div class="flowrow"><div class="k">项目管理<small>Ops</small></div>
+      <div class="v"><b>周复盘 5 步法</b>：本周完成 / 是否达标 / 出现的问题 / 方案能否推广 / 下周计划。团队从 0 搭到 <b>20+</b>：在沟通中物色意向成员，用归属感留人；3 名骨干由我带业务+复盘培养，并已发展出自己的小团队。</div></div>
+
+    <div class="flowrow"><div class="k">数据分析 / 指标<small>Metrics</small></div>
+      <div class="v">核心指标：<b>聊单数量（先有量才有质）</b> + 高质量客户转化率。年度 30w+ 业绩中，小部分为个人聊单，大部分由团队成员带来——<b>团队规模即增长引擎</b>。曾发现致命问题（见下方闭环图）并据此迭代。</div></div>
+
+    <div class="flowrow"><div class="k">上线 / 增长<small>Growth</small></div>
+      <div class="v">参与全部业务环节：找客户、聊单、跟单、发展成员、培养成员、周会、运营学员/新生俱乐部，直接带来团队<b>一年 30w 业绩</b>。</div></div>
+
+    <div class="flowrow"><div class="k">复盘 / 迭代<small>Loop</small></div>
+      <div class="v">最大成长是<b>团队管理</b>：与成员做朋友而非上下级，花时间培养、带他们一起成长。把一次踩坑沉淀为可复用方法论（见下方）。</div></div>
+
+    <div class="sub">🔁 业务闭环：把「被当传销」迭代为信任友好型转化</div>
+    <div class="funnel">
+      <div class="fstep"><div class="n">1</div><div class="box">初版聊单：1 小时从大学规划直接推进到课程讲解</div></div>
+      <div class="arrow">▼ 问题：客户不买→认定我们是「传销卖课」→信任崩塌+圈子负面影响</div>
+      <div class="fstep"><div class="n">2</div><div class="box alt">迭代为「两次聊单」：第一次纯聊规划 + 留 3 个思考题（学什么/怎么学/学到什么程度）</div></div>
+      <div class="arrow">▼ 隔 1–2 天</div>
+      <div class="fstep"><div class="n">3</div><div class="box soft">第二次用这 3 题约聊，再引出「课程能解决这 3 题」→ 问要不要了解</div></div>
+      <div class="arrow">▼ 结果：转化率提升，且不买也不伤信任、无负面扩散</div>
+    </div>
+    <div class="artifact"><b>💡 产品视角</b>：这就是一次标准的「发现问题 → 假设 → A/B 式迭代 → 指标验证」闭环，体现 PM 最核心的复盘与增长能力。</div>
+  </section>
+
+  <!-- 4. 佐证 -->
+  <section class="section">
+    <h2><span class="num">4</span>能力佐证｜竞赛 & 校园经历</h2>
+    <p class="lead">这些经历是「0-1 推进、跨方协调、资源整合」的硬背书。</p>
+    <div class="tl">
+      <div class="item"><b>🏆 2025 中国机器人大赛暨 RoboCup 公开赛 · 国家一等奖</b><p>担任<b>团队队长</b>，用代码控制机器人在特定环境完成清障/搜寻/救援；主导路径算法（A*）、聚类算法（K-means）、清障判定等代码编写与优化——技术理解与项目攻坚。</p></div>
+      <div class="item"><b>🥇 第十四届江苏省大学生机器人大赛救援仿真 · 一等奖（冠军）</b><p>同上机器人项目，技术协作与方案落地的综合体现。</p></div>
+      <div class="item"><b>🎖️ 2023「星云杯」AI 算法暨中国·扬州科技创新创业大赛 · 优秀奖</b><p>项目为<b>无线电信号监测的超宽带测向系统</b>；负责测向角实物图绘制与 PPT 制作。</p></div>
+      <div class="item"><b>🎤 院青协外联部主席 & 部长</b><p>「维达传情」：从高校赞助群对接企业，校内宣发卖维达纸巾换 3000 元赞助（海报+内容策划、QQ/朋友圈/表白墙宣发+转发点赞引流、食堂图书馆抽奖卖纸）。「三行情诗」线上赛：三行诗参赛、7 天投票（占 60%）+企业打分（40%），用精美奖品 +「用赞助收入采购学习物资捐山区学校」的公益机制吸引 100+ 参赛、200+ 作品。</p></div>
+      <div class="item"><b>👥 班长 & 沙龙讲座统筹</b><p>协调班级多方事务；用「讲座印章」吸引学生参与，统筹 20+ 沙龙、5 场大型讲座（累计 1000+ 人）换取赞助费。</p></div>
+    </div>
+  </section>
+
+  <!-- 5. 技能 -->
+  <section class="section">
+    <h2><span class="num">5</span>技能与工具</h2>
+    <div class="skills">
+      <div class="sk-box"><h4>💻 技术能力（懂代码的售前）</h4><ul>
+        <li>Java / Spring / Python / C-C++</li>
+        <li>前端基础，能与研发高效沟通、评估实现成本</li>
+        <li>独立 Demo：<a href="https://ling520123.github.io/2048-/" target="_blank">2048 小游戏（在线试玩 ↗）</a>、QQ 登录/注册界面截图（真实项目素材）</li>
+      </ul></div>
+      <div class="sk-box"><h4>🛠️ 产品 / 分析工具</h4><ul>
+        <li>Axure 原型、XMind 脑图、Mermaid 流程图</li>
+        <li>Excel 统计分析、Python(pandas/sklearn) 数据分析</li>
+        <li>Word / PPT；数据可视化大屏（石方 BI）</li>
+      </ul></div>
+      <div class="sk-box"><h4>🌟 综合能力</h4><ul>
+        <li>项目 0-1 推进经验</li>
+        <li>需求调研、跨方沟通协调</li>
+        <li>资源整合、数据分析复盘</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <!-- 6. 独立 Demo 作品 -->
+  <section class="section">
+    <h2><span class="num">6</span>作品展示｜Demo 与界面素材</h2>
+    <p class="lead">用 HTML / CSS / JavaScript 从零实现的经典 2048——证明我能把想法直接落地成「可交互、可交付」的产品原型，而不只是画原型图。</p>
+    <div class="demo">
+      <div class="demo-head">
+        <div><h3>🎮 2048 小游戏</h3><div class="meta">纯前端实现 · 方向键 / 滑动合成 · 实时计分与最高分</div></div>
+        <a class="play" href="https://ling520123.github.io/2048-/" target="_blank">↗ 新窗口试玩</a>
+      </div>
+      <div class="game-frame">
+        <img src="assets/media/game_2048.png" alt="2048 小游戏真实通关截图" style="width:100%;height:auto;display:block" />
+      </div>
+      <div class="cap">↑ 2048 真实通关截图（You Win! · 得分 21188），由 GitHub Pages 实际运行生成；点上方「新窗口试玩」可实时操作。</div>
+    </div>
+    <div class="flowrow" style="margin-top:14px">
+      <div class="k">它证明的 PM 能力<small>Why it matters</small></div>
+      <div class="v">① <b>能独立搭可交互 Demo</b>，和研发沟通不卡在「说不清、画不出」；② <b>关注交互与体验细节</b>（合成动画、计分反馈、操作手感）；③ <b>游戏化思维</b>——把目标拆解成即时反馈的进度与奖励，这套思路可迁移到客户激励与方案演示设计。</div>
+    </div>
+
+    <h3 style="margin:24px 0 10px;font-size:16px;color:var(--brand)">📱 QQ 登录/注册界面截图（真实项目素材）</h3>
+    <div class="gal-item">
+      <img src="assets/media/qq_login.png" alt="QQ 登录/注册界面截图" />
+      <div class="cap"><b>QQ 登录/注册界面截图</b>（真实项目素材）：展示对账号体系 / 登录交互的理解——登录/注册切换、表单校验、手机号区号选择、主行动按钮与同意协议等要素。</div>
+    </div>
+
+    <h3 style="margin:26px 0 10px;font-size:16px;color:var(--brand)">📄 产品文档（PRD 片段）</h3>
+    <p class="lead" style="margin-bottom:12px">基于<b>项目 A 真实功能</b>撰写，证明「能写文档」：一份 PRD 片段（功能列表 + MoSCoW 优先级 + 可测验收标准）。</p>
+
+    <h4 style="margin:14px 0 8px;font-size:14px;color:var(--ink)">PRD 片段｜女装评论情感分析 · 诉求洞察模块</h4>
+    <table class="prd">
+      <thead><tr><th>功能ID</th><th>功能名称</th><th>描述</th><th>优先级</th><th>验收标准（Given / When / Then）</th></tr></thead>
+      <tbody>
+        <tr><td>F-01</td><td>评论采集与清洗</td><td>从跨境电商平台批量采集女装评论，去噪、去重、分词，结构化落表</td><td><span class="prio m">Must</span></td><td>给定采集配置，执行后产出结构化评论表（文本/星级/日期）；清洗后缺失率 &lt; 5%</td></tr>
+        <tr><td>F-02</td><td>情感极性判定</td><td>用 VADER 对评论打「积极/中性/消极」极性标签与置信度</td><td><span class="prio m">Must</span></td><td>给定一条评论，输出极性 + 置信度；整体积极占比与人工抽检误差 &lt; ±3%</td></tr>
+        <tr><td>F-03</td><td>诉求维度提取（LDA）</td><td>细粒度情感：提取样式/尺寸/品质/颜色四类诉求主题词并排序</td><td><span class="prio m">Must</span></td><td>给定情感评论集，输出四类诉求主题词 + 权重，结果可解释</td></tr>
+        <tr><td>F-04</td><td>用户画像搭建</td><td>按评论行为与诉求聚类，生成可描述的特征画像</td><td><span class="prio s">Should</span></td><td>给定评论 + 订单，输出 N 类画像及每类关键特征</td></tr>
+        <tr><td>F-05</td><td>数据大屏可视化</td><td>石方 BI 搭建用户画像/运营/情感/营销四模块大屏</td><td><span class="prio s">Should</span></td><td>给定分析结果，大屏可展示四模块视图，支持分享</td></tr>
+        <tr><td>F-06</td><td>营销建议输出</td><td>基于诉求排名生成「评论→需求→营销」可执行动作清单</td><td><span class="prio c">Could</span></td><td>给定诉求排名，输出可落地营销动作及负责人/排期建议</td></tr>
+      </tbody>
+    </table>
+    <div class="cap" style="margin-top:8px">↑ 优先级采用 MoSCoW 法；验收标准为可测试条件。完整 PRD 见「项目细节」归档。</div>
+
+  </section>
+
+  <div class="footer">李飞扬 · 产品经理作品集</div>
+</div>
+</body>
+</html>
